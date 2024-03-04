@@ -61,7 +61,12 @@ fun CharacterDetailsScreen(
 
     LaunchedEffect(key1 = Unit, block = {
         delay(500)
-        character = ktorClient.getCharacter(characterId)
+        ktorClient
+            .getCharacter(characterId)
+            .onSuccess { character = it }
+            .onFailure {
+                //todo add failure state
+            }
     })
 
     LazyColumn(
@@ -92,7 +97,7 @@ fun CharacterDetailsScreen(
                     .fillMaxWidth()
                     .aspectRatio(1f)
                     .clip(RoundedCornerShape(12.dp)),
-                loading = { LoadingState()})
+                loading = { LoadingState() })
         }
 
         //Data points
@@ -133,7 +138,7 @@ fun LoadingState(
     modifier: Modifier = Modifier
         .fillMaxSize()
         .padding(all = 128.dp)
-){
+) {
     CircularProgressIndicator(
         modifier = modifier,
         color = RickAction
