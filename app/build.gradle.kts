@@ -10,7 +10,7 @@ android {
     defaultConfig {
         applicationId = "com.myth.picklerick"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -70,6 +70,6 @@ dependencies {
     //coil
     implementation("io.coil-kt:coil-compose:2.5.0")
 
-    def nav_version = "2.7.7"
-    implementation("androidx.navigation:navigation-compose:$nav_version")
+    val navVersion = "2.7.7"
+    implementation("androidx.navigation:navigation-compose:$navVersion")
 }
